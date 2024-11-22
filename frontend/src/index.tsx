@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import ShopContextProvider from './Context/ShopContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Root element not found.");
+}
+
+const root = ReactDOM.createRoot(rootElement);
 root.render(
+  <React.StrictMode>
     <ShopContextProvider>
       <App />
     </ShopContextProvider>
+  </React.StrictMode>
 );
